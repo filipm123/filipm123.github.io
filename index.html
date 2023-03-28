@@ -57,24 +57,16 @@
     <h1>PWAPP</h1>
     <p>Autorzy: Filip Miedlar, Bartosz Pikulski</p>
   </div>
-  <div>
-    <li><a href=MAP.html>MAP</a></li>
-    <li><a href=SOS.html>MAP</a></li>
-  </div>
+
 
   <div class="container mt-5">
     <div class="row">
       <div class="col-sm-6">
-        <h3>MAP</h3>
-        <div id="map"></div>
-        <button onclick="getuserlocation()">Get Location</button>
+        <a href=MAP.html>MAP</a>
       </div>
       <div class="col-sm-6">
-        <h3>SOS</h3>
-        <h4>Click to vibrate</h4>
-        <button onclick="vibrate()">Vibrate me</button>
-
-      </div>
+        <a href=SOS.html>SOS</a>
+    </div>
 
     </div>
   </div>
@@ -87,51 +79,6 @@
         '/sw.js'
       );
     }
-    var map = L.map('map');
-    map.setView([51.505, -0.09], 13);
-
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-
-    /*navigator.geolocation.watchPosition(success, error);*/
-    function getuserlocation(){
-    navigator.geolocation.watchPosition(success, error);
-    function success(pos){
-
-      const lat = pos.coords.latitude;
-      const lng = pos.coords.longitude;
-      const accuracy = pos.coords.accuracy;
-
-      let marker = L.marker([lat,lng]).addTo(map);
-      let circle = L.circle([lat,lng, {radius:accuracy}]).addTo(map);
-
-      map.fitBounds(circle.getBounds());
-
-    }
-    function error(err){
-      if (err.code===1){
-        alert('Please allow geolocation access');
-      } else{
-        alert('Cannot get current location');
-      }
-    }
-  }
-
-
-    function vibrate(){
-      if (navigator.vibrate) {
-        navigator.vibrate([500,250,500,250,500]);
-      } else {
-        alert('vibration api not supported');
-      }
-
-    }
-
-
-
-
   </script>
 </body>
 
