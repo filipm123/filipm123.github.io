@@ -1,16 +1,16 @@
 {
-    "name": "filipm bp Progressive Web App",
+    "name": "filipmiedlar bartoszpikulski Progressive Web App",
     "short_name": "hello",
     "description": "app test",
     "icons": [
       {
-        "src": "icons/icon-32.png",
+        "src": "icons/icon32.png",
         "sizes": "32x32",
         "type": "image/png"
       },
 
       {
-        "src": "icons/icon-512.png",
+        "src": "icons/icon512.png",
         "sizes": "512x512",
         "type": "image/png"
       }
