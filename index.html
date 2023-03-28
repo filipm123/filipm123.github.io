@@ -91,6 +91,7 @@
     }).addTo(map);
 
     navigator.geolocation.watchPosition(success, error);
+    function getuserlocation()
     function success(pos){
 
       const lat = pos.coords.latitude;
@@ -111,11 +112,8 @@
       }
     }
     function vibrate(){
-      if (navigator.vibrate){
-        navigator.vibrate(740,100,520,100,740,100);
-      } else{
-        console.log('Vibration API not supported');
-      }
+        navigator.vibrate(500,250,500,250,500);
+
     }
 
 
