@@ -66,8 +66,9 @@
       </div>
       <div class="col-sm-6">
         <h3>SOS</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        <h4>Click to vibrate</h4>
+        <button onclick="vibrate()">Vibrate me</button>
+
       </div>
 
     </div>
@@ -109,6 +110,15 @@
         alert('Cannot get current location');
       }
     }
+    function vibrate(){
+      if (navigator.vibrate){
+        navigator.vibrate(500,500,500);
+      } else{
+        console.log('Vibration API not supported');
+      }
+    }
+
+
 
 
   </script>
