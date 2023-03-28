@@ -63,6 +63,7 @@
       <div class="col-sm-6">
         <h3>MAP</h3>
         <div id="map"></div>
+        <button onclick="getuserlocation()">Get Location</button>
       </div>
       <div class="col-sm-6">
         <h3>SOS</h3>
@@ -73,7 +74,7 @@
 
     </div>
   </div>
-  <!-- Our app-index web component. This component is defined in src/pages/app-index.ts-->
+  <!-- Our app-index web component. This component is defined in src/pages/apps-index.ts-->
   <app-index></app-index>
 
   <script>
@@ -112,7 +113,7 @@
       }
     }
     function vibrate(){
-        navigator.vibrate(500,250,500,250,500);
+        navigator.vibrate([500,250,500,250,500]);
 
     }
 
