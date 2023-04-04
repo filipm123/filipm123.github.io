@@ -68,6 +68,14 @@
       <div class="col-sm-6">
         <a href=SOS.html>SOS</a>
     </div>
+  <div class="container mt-5">
+    <div class="col-sm-12">
+      <ul id="data-list">
+
+      </ul>
+
+    </div>
+  </div>
 
     </div>
   </div>
@@ -109,11 +117,14 @@
             // Read data
             const querySnapshot = await getDocs(collection(db, "cars"));
 
-            querySnapshot.forEach((doc) => {
-                console.log(doc.data());
-                console.log(doc.data()['brand'],doc.data()['model']);
-                document.writeln(doc.data()['brand'],' ',doc.data()['model'],'<br>');
-            });
+            db.collection('items').get().then((querySnapshot) => {
+  querySnapshot.forEach((doc) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = `${doc.data().name}: ${doc.data().description}`;
+    dataList.appendChild(listItem);
+  });
+});
+
   </script>
 </body>
 
