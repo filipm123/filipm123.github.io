@@ -310,8 +310,8 @@ section {
 
 }
 
-.audioPlayer{
-    border-radius:15px;
+.audioPlayer {
+    border-radius: 15px;
 }
 
 .scrollToTopContainer {
@@ -387,11 +387,10 @@ section {
     }
 
     .container {
-        top: 50%;
-        height: 400px;
-        width: 550px;
-        border-radius: 5%;
-        background-color: #22181C;
+        height: 470px;
+        width: 350px;
+        border-radius: 15px;
+        background-color: #171717;
         box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
 
 
