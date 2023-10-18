@@ -185,7 +185,7 @@
                     </div>
 
                     <div class="container">
-                        
+
 
                     </div>
                 </div>
@@ -198,21 +198,26 @@
             <div class="contact-form-container">
                 <div class="contactText">
                     <h1>If you want to work</h1>
-                    <h2>Contact me:</h2>
-                    <img class='icon'src='icons/phone-svgrepo-com.svg'><p>+48 789 185 146</p>
-                    <img class='icon'src='icons/mail-alt-svgrepo-com.svg'><p>filipmiedlar801@gmail.com</p>
-                    <img class='icon'src='icons/address-location-map-svgrepo-com.svg'><p>Cracow, Poland</p>
+                    <h2 class="contactMeText">Contact me:</h2>
+                    <img class='icon' src='icons/phone-svgrepo-com.svg'>
+                    <p>+48 789 185 146</p>
+                    <img class='icon' src='icons/mail-alt-svgrepo-com.svg'>
+                    <p>filipmiedlar801@gmail.com</p>
+                    <img class='icon' src='icons/address-location-map-svgrepo-com.svg'>
+                    <p>Cracow, Poland</p>
                 </div>
+               
+                    <form class="contact-form">
+                        <input type="hidden" name="contact_number">
+                        <label for="email"></label>
+                        <input class='emailInput' type="email" name="user_email" placeholder="Enter your email">
+                        <label for="message"></label>
+                        <textarea class='textInput' name="message" rows="4" placeholder='Type your message'
+                            required></textarea>
+                        <button class='submitButton' type="submit" value="Send">Send</button>
 
-                <form class="contact-form">
-                    <input type="hidden" name="contact_number">
-                    <label for="email"></label>
-                    <input class='emailInput' type="email" name="user_email" placeholder="Enter your email">
-                    <label for="message"></label>
-                    <textarea class='textInput' name="message" rows="4" placeholder='Type your message' required></textarea>
-                    <button class='submitButton' type="submit" value="Send">Send</button>
-
-                </form>
+                    </form>
+            
             </div>
             <div id="message-status"></div>
         </section>
