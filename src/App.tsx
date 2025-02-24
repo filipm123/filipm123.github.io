@@ -50,7 +50,7 @@ function App() {
   return (
     <div
       ref={myRef}
-      className="bg-black text-blue-400 font-mono p-4 h-screen w-screen flex md:justify-center md:align-center lg:justify-center lg:align-center flex-col align-start justify-start"
+      className="bg-black font-mono p-4 h-screen w-screen flex md:justify-center md:align-center lg:justify-center lg:align-center flex-col align-start justify-start"
     >
       {" "}
       {/* Top-right text */}
@@ -58,13 +58,13 @@ function App() {
         Filip Międlar, 2025
       </div>
       {!showCard ? (
-        <div className="text-xl flex  justify-center items-center">
+        <div className="text-xl flex justify-center items-center">
           <span className="text-3xl animate-waving-hand">👋</span>
           <span className="ml-2">{text}</span>
           <span className="animate-blink">_</span>
         </div>
       ) : (
-        <div className="flex flex-col justify-center gap-4 items-center animate-grow">
+        <div className="flex flex-col justify-center gap-4 items-center">
           <Info />
           <Card activeTab={activeTab} setActiveTab={setActiveTab} />
         </div>
