@@ -1,5 +1,4 @@
 import profileImg from "./assets/profilepic.jpg";
-
 function Info() {
   return (
     <div

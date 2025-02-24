@@ -103,3 +103,7 @@ button:focus-visible {
 .animate-grow-center {
   animation: growFromCenter 1s ease-out forwards;
 }
+
+.card {
+  transition: all 0.3s ease-in-out;
+}

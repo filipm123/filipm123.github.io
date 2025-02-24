@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import Card from "./Card";
 import Info from "./Info";
 import DOTS from "vanta/dist/vanta.dots.min";
-
+import RainbowElement from "./RainbowWrapper";
 const message = "Hi, I am Filip!";
 
 function App() {
@@ -50,13 +50,15 @@ function App() {
   return (
     <div
       ref={myRef}
-      className="bg-black font-mono p-4 h-screen w-screen flex md:justify-center md:align-center lg:justify-center lg:align-center flex-col align-start justify-start"
+      className="cursor-default bg-black font-mono p-4 h-screen w-screen flex md:justify-center md:align-center lg:justify-center lg:align-center flex-col align-start justify-start"
     >
       {" "}
       {/* Top-right text */}
-      <div className="absolute bottom-4 right-4 text-stone-800 text-md font-light">
-        Filip Międlar, 2025
-      </div>
+      <RainbowElement>
+        <div className="absolute bottom-4 right-4 text-stone-800 text-md font-light">
+          Filip Międlar, 2025
+        </div>
+      </RainbowElement>
       {!showCard ? (
         <div className="text-xl flex justify-center items-center">
           <span className="text-3xl animate-waving-hand">👋</span>
@@ -64,7 +66,7 @@ function App() {
           <span className="animate-blink">_</span>
         </div>
       ) : (
-        <div className="flex flex-col justify-center gap-4 items-center">
+        <div className="flex flex-col justify-center gap-4 items-center ">
           <Info />
           <Card activeTab={activeTab} setActiveTab={setActiveTab} />
         </div>

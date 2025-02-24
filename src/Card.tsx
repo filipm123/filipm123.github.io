@@ -1,21 +1,64 @@
+import { useState } from "react";
 import { FaReact, FaNodeJs, FaWordpress, FaFire } from "react-icons/fa";
 import { DiMongodb } from "react-icons/di";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   SiNextdotjs,
   SiTailwindcss,
   SiTypescript,
   SiNestjs,
 } from "react-icons/si";
+import explosion from "./assets/explode.gif";
+import explosionsound from "./assets/explosionsound.mp3";
 
 interface CardProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
 }
+const techStack = [
+  { Icon: FaReact, name: "React", color: "text-blue-500" },
+  { Icon: SiTailwindcss, name: "TailwindCSS", color: "text-teal-400" },
+  { Icon: SiTypescript, name: "Typescript", color: "text-blue-600" },
+  { Icon: SiNextdotjs, name: "NextJS", color: "text-white" },
+  { Icon: DiMongodb, name: "MongoDB", color: "text-green-500" },
+  { Icon: FaFire, name: "Firebase", color: "text-yellow-500" },
+  { Icon: FaWordpress, name: "WordPress", color: "text-blue-700" },
+  { Icon: FaNodeJs, name: "Node.js", color: "text-green-600" },
+  { Icon: SiNestjs, name: "NestJS", color: "text-red-600" },
+];
+
+const explosionSequence = ["React", "NestJS", "WordPress", "Typescript"];
 
 function Card({ activeTab, setActiveTab }: CardProps) {
+  const [, setClickOrder] = useState<string[]>([]);
+  const [explode, setExplode] = useState(false);
+  const handleTechClick = (name: string) => {
+    if (explode) return;
+
+    setClickOrder((prev) => {
+      const newOrder = [...prev, name];
+
+      if (newOrder.length > explosionSequence.length) {
+        newOrder.shift();
+      }
+
+      if (JSON.stringify(newOrder) === JSON.stringify(explosionSequence)) {
+        setExplode(true);
+
+        const audio = new Audio(explosionsound);
+        audio.play();
+
+        setTimeout(() => {
+          setExplode(false);
+          setClickOrder([]);
+        }, 1500);
+      }
+      return newOrder;
+    });
+  };
   return (
     <div
-      className={`mb-4 lg:min-w-3xl mdlg:min-w-3xl w-full bg-black h-lg  text-slate-300 p-4 rounded-2xl  max-w-3xl transition-opacity duration-500 shadow-xl border border-stone-800 animate-fade-in`}
+      className={`mb-4 lg:min-w-3xl mdlg:min-w-3xl w-full bg-black h-lg  text-slate-300 p-4 rounded-2xl  max-w-3xl shadow-xl border border-stone-800 animate-fade-in`}
     >
       {/* Tabs */}
       <div className="flex flex-col sm:flex-row gap-4  pb-2">
@@ -42,7 +85,7 @@ function Card({ activeTab, setActiveTab }: CardProps) {
             activeTab === "tech" ? "text-slate-100" : "text-slate-300"
           }`}
         >
-          ⚙️ Technologies
+          ⚙️ Tech stack
         </button>
       </div>
 
@@ -59,11 +102,12 @@ function Card({ activeTab, setActiveTab }: CardProps) {
             <div className="animate-fade-in">
               <p className="text-lg">Hey! 👨‍💻</p>
               <p>
-                I'm a Master's student in **Applied Informatics** with a passion
-                for **building useful and meaningful projects**. I enjoy
-                problem-solving, working on innovative tech, and creating tools
-                that help people. In my free time, I explore **music
-                production** and new technologies.
+                I'm a Master's student in Applied Informatics with a focus on
+                building useful and meaningful projects. I enjoy problem-solving
+                and working on innovative technologies to create tools that make
+                a positive impact. I am always eager to learn new things,
+                improve my skills, and stay curious about emerging trends. In my
+                free time, I love to create music.
               </p>
             </div>
           )}
@@ -78,14 +122,8 @@ function Card({ activeTab, setActiveTab }: CardProps) {
         >
           {activeTab === "projects" && (
             <div className="animate-fade-in">
-              <p className="text-lg">Here’s what I’m working on 🚀</p>
-              <ul className="list-disc list-inside space-y-2">
-                <li>🔧 Building web apps that solve real-world problems</li>
-                <li>📚 Exploring AI & automation</li>
-                <li>💡 Always learning new tech & frameworks</li>
-              </ul>
-
               {/* Highlighted Vetsi Section */}
+              <div>Here are some projects im part of:</div>
               <div className="mt-6 p-5 bg-slate-800/20 border border-slate-600 rounded-lg shadow-lg text-slate-100">
                 <h3 className="text-xl font-bold mb-2">
                   🐾 Vetsi – Online Animal Care
@@ -128,51 +166,36 @@ function Card({ activeTab, setActiveTab }: CardProps) {
             <div className="animate-fade-in">
               <p className="text-lg">Here are some technologies I use ⚙️</p>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-4 text-center">
-                <div className="p-6 border rounded-lg bg-slate-800 text-slate-100 hover:scale-110 hover:rotate-3 transition-all duration-300 ease-in-out transform flex items-center justify-center flex-col">
-                  <FaReact className="text-4xl transition-transform duration-300 ease-in-out" />
-                  <p className="mt-2 text-sm">React</p>
-                </div>
-
-                <div className="p-6 border rounded-lg bg-slate-800 text-slate-100 hover:scale-110 hover:rotate-3 transition-all duration-300 ease-in-out transform flex items-center justify-center flex-col">
-                  <SiTailwindcss className="text-4xl transition-transform duration-300 ease-in-out" />
-                  <p className="mt-2 text-sm">TailwindCSS</p>
-                </div>
-
-                <div className="p-6 border rounded-lg bg-slate-800 text-slate-100 hover:scale-110 hover:rotate-3 transition-all duration-300 ease-in-out transform flex items-center justify-center flex-col">
-                  <SiTypescript className="text-4xl transition-transform duration-300 ease-in-out" />
-                  <p className="mt-2 text-sm">Typescript</p>
-                </div>
-
-                <div className="p-6 border rounded-lg bg-slate-800 text-slate-100 hover:scale-110 hover:rotate-3 transition-all duration-300 ease-in-out transform flex items-center justify-center flex-col">
-                  <SiNextdotjs className="text-4xl transition-transform duration-300 ease-in-out" />
-                  <p className="mt-2 text-sm">NextJS</p>
-                </div>
-
-                <div className="p-6 border rounded-lg bg-slate-800 text-slate-100 hover:scale-110 hover:rotate-3 transition-all duration-300 ease-in-out transform flex items-center justify-center flex-col">
-                  <DiMongodb className="text-4xl transition-transform duration-300 ease-in-out" />
-                  <p className="mt-2 text-sm">MongoDB</p>
-                </div>
-
-                <div className="p-6 border rounded-lg bg-slate-800 text-slate-100 hover:scale-110 hover:rotate-3 transition-all duration-300 ease-in-out transform flex items-center justify-center flex-col">
-                  <FaFire className="text-4xl transition-transform duration-300 ease-in-out" />
-                  <p className="mt-2 text-sm">Firebase</p>
-                </div>
-
-                <div className="p-6 border rounded-lg bg-slate-800 text-slate-100 hover:scale-110 hover:rotate-3 transition-all duration-300 ease-in-out transform flex items-center justify-center flex-col">
-                  <FaWordpress className="text-4xl transition-transform duration-300 ease-in-out" />
-                  <p className="mt-2 text-sm">WordPress</p>
-                </div>
-
-                <div className="p-6 border rounded-lg bg-slate-800 text-slate-100 hover:scale-110 hover:rotate-3 transition-all duration-300 ease-in-out transform flex items-center justify-center flex-col">
-                  <FaNodeJs className="text-4xl transition-transform duration-300 ease-in-out" />
-                  <p className="mt-2 text-sm">Node.js</p>
-                </div>
-
-                <div className="p-6 border rounded-lg bg-slate-800 text-slate-100 hover:scale-110 hover:rotate-3 transition-all duration-300 ease-in-out transform flex items-center justify-center flex-col">
-                  <SiNestjs className="text-4xl transition-transform duration-300 ease-in-out" />
-                  <p className="mt-2 text-sm">NestJS</p>
-                </div>
+                {techStack.map(({ Icon, name, color }) => (
+                  <div
+                    key={name}
+                    className="p-6 border border-stone-800 rounded-lg bg-slate-800/20 text-slate-100 hover:scale-110 hover:rotate-3 transition-all duration-300 ease-in-out transform flex items-center justify-center flex-col"
+                    onClick={() => handleTechClick(name)}
+                  >
+                    <Icon
+                      className={`text-4xl transition-transform duration-300 ease-in-out ${color}`}
+                    />
+                    <p className="mt-2 text-sm">{name}</p>
+                  </div>
+                ))}
               </div>
+              <AnimatePresence>
+                {explode && (
+                  <motion.div
+                    className="absolute inset-0 flex items-center   justify-center bg-transparent"
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 3, opacity: 1 }}
+                    exit={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.1 }}
+                  >
+                    <img
+                      src={explosion}
+                      alt="Explosion"
+                      className="w-256 h-256"
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           )}
         </div>
