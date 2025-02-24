@@ -52,6 +52,11 @@ function App() {
       ref={myRef}
       className="bg-black text-blue-400 font-mono p-4 h-screen w-screen flex md:justify-center md:align-center lg:justify-center lg:align-center flex-col align-start justify-start"
     >
+      {" "}
+      {/* Top-right text */}
+      <div className="absolute bottom-4 right-4 text-stone-800 text-md font-light">
+        Filip Międlar, 2025
+      </div>
       {!showCard ? (
         <div className="text-xl flex  justify-center items-center">
           <span className="text-3xl animate-waving-hand">👋</span>
@@ -59,7 +64,7 @@ function App() {
           <span className="animate-blink">_</span>
         </div>
       ) : (
-        <div className="flex flex-col justify-center gap-4 items-center ">
+        <div className="flex flex-col justify-center gap-4 items-center animate-grow">
           <Info />
           <Card activeTab={activeTab} setActiveTab={setActiveTab} />
         </div>

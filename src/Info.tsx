@@ -13,7 +13,7 @@ function Info() {
       <div className="flex flex-col justify-end">
         <span className="font-bold text-2xl">Filip Międlar</span>
         <span className="">Web developer</span>
-        <span>filipmiedlar801@gmail.com</span>
+        <span className="text-stone-600">  filipmiedlar801@gmail.com</span>
       </div>
     </div>
   );
