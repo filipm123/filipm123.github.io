@@ -1,13 +1,5 @@
-import React from "react";
-import {
-  FaReact,
-  FaCss3Alt,
-  FaNodeJs,
-  FaWordpress,
-  FaFire,
-  FaGithub,
-} from "react-icons/fa";
-import { DiMongodb, DiJavascript1 } from "react-icons/di";
+import { FaReact, FaNodeJs, FaWordpress, FaFire } from "react-icons/fa";
+import { DiMongodb } from "react-icons/di";
 import {
   SiNextdotjs,
   SiTailwindcss,
@@ -15,10 +7,15 @@ import {
   SiNestjs,
 } from "react-icons/si";
 
-function Card({ activeTab, setActiveTab }) {
+interface CardProps {
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
+}
+
+function Card({ activeTab, setActiveTab }: CardProps) {
   return (
     <div
-      className={`lg:min-w-3xl md:min-w-3xl w-full bg-black h-lg  text-slate-300 p-4 rounded-2xl  max-w-3xl transition-opacity duration-500 shadow-xl border border-stone-800 animate-fade-in`}
+      className={`lg:min-w-3xl mdlg:min-w-3xl w-full bg-black h-lg  text-slate-300 p-4 rounded-2xl  max-w-3xl transition-opacity duration-500 shadow-xl border border-stone-800 animate-fade-in`}
     >
       {/* Tabs */}
       <div className="flex flex-col sm:flex-row gap-4  pb-2">

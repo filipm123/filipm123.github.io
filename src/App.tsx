@@ -1,19 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
-import {
-  FaReact,
-  FaCss3Alt,
-  FaNodeJs,
-  FaWordpress,
-  FaFire,
-  FaGithub,
-} from "react-icons/fa";
-import { DiMongodb, DiJavascript1 } from "react-icons/di";
-import {
-  SiNextdotjs,
-  SiTailwindcss,
-  SiTypescript,
-  SiNestjs,
-} from "react-icons/si";
+import { useEffect, useState, useRef } from "react";
+
 import Card from "./Card";
 import Info from "./Info";
 import DOTS from "vanta/dist/vanta.dots.min";
@@ -37,7 +23,7 @@ function App() {
       setTimeout(() => setShowCard(true), 800);
     }
   }, [index, text]);
-  const [vantaEffect, setVantaEffect] = useState<any>(null);
+  const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!vantaEffect) {
@@ -59,9 +45,7 @@ function App() {
         })
       );
     }
-    return () => {
-      if (vantaEffect) vantaEffect.destroy();
-    };
+    return () => {};
   }, [vantaEffect]);
   return (
     <div
