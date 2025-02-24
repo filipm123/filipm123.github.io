@@ -50,7 +50,7 @@ function App() {
   return (
     <div
       ref={myRef}
-      className="bg-black text-blue-400 font-mono p-4 h-screen w-screen flex justify-center align-center"
+      className="bg-black text-blue-400 font-mono p-4 h-screen w-screen flex md:justify-center md:align-center lg:justify-center lg:align-center flex-col align-start justify-start"
     >
       {!showCard ? (
         <div className="text-xl flex  justify-center items-center">

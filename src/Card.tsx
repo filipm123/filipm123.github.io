@@ -15,7 +15,7 @@ interface CardProps {
 function Card({ activeTab, setActiveTab }: CardProps) {
   return (
     <div
-      className={`lg:min-w-3xl mdlg:min-w-3xl w-full bg-black h-lg  text-slate-300 p-4 rounded-2xl  max-w-3xl transition-opacity duration-500 shadow-xl border border-stone-800 animate-fade-in`}
+      className={`mb-4 lg:min-w-3xl mdlg:min-w-3xl w-full bg-black h-lg  text-slate-300 p-4 rounded-2xl  max-w-3xl transition-opacity duration-500 shadow-xl border border-stone-800 animate-fade-in`}
     >
       {/* Tabs */}
       <div className="flex flex-col sm:flex-row gap-4  pb-2">
